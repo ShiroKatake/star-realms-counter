@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.c9c0b35f.js",
-    "static/js/787.7ba35d64.chunk.js": "/static/js/787.7ba35d64.chunk.js",
-    "index.html": "/index.html",
-    "main.c9c0b35f.js.map": "/static/js/main.c9c0b35f.js.map",
-    "787.7ba35d64.chunk.js.map": "/static/js/787.7ba35d64.chunk.js.map"
+    "main.js": "/star-realms-counter/static/js/main.b4a01de5.js",
+    "static/js/787.7ba35d64.chunk.js": "/star-realms-counter/static/js/787.7ba35d64.chunk.js",
+    "index.html": "/star-realms-counter/index.html",
+    "main.b4a01de5.js.map": "/star-realms-counter/static/js/main.b4a01de5.js.map",
+    "787.7ba35d64.chunk.js.map": "/star-realms-counter/static/js/787.7ba35d64.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.c9c0b35f.js"
+    "static/js/main.b4a01de5.js"
   ]
 }
