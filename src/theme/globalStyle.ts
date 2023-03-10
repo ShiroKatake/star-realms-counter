@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    font-family: "Inter";
+    font-family: "Barlow Condensed";
     font-size: 16px;
     text-rendering: optimizeSpeed;
     -webkit-font-smoothing: antialiased;
@@ -25,7 +25,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    min-height: 100vh;
     color: ${(props: any) => props.theme.colors.text};
     background: ${(props: any) => props.theme.colors.background};
   }

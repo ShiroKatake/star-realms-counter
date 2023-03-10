@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
-export const Grid = styled.div`
+export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const Row = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-`;
-
-export const Column = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
+export const Value = styled.div`
+  position: absolute;
+  pointer-events:none;
+  font-size: 7rem;
 `;
 
 export const Button = styled.button`
+  display: block;
+  width: 100%;
+  height: 25vh;
 `;
