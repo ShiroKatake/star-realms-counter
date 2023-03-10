@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Value = styled.div`
   position: absolute;
-  pointer-events:none;
+  pointer-events: none;
   font-size: 7rem;
 `;
 

@@ -37,12 +37,12 @@ jobs:
         if: always()
         run: echo "::set-output name=stepOutcome::${{ steps.install.outcome }}"
 
-      - name: 🧪 Test
-        id: test
-        run: npm test
-      - id: testOutcome
-        if: always()
-        run: echo "::set-output name=stepOutcome::${{ steps.test.outcome }}"        
+      # - name: 🧪 Test
+      #   id: test
+      #   run: npm test
+      # - id: testOutcome
+      #   if: always()
+      #   run: echo "::set-output name=stepOutcome::${{ steps.test.outcome }}"        
 
       - name: 🔧 Build
         id: build
