@@ -1,8 +1,7 @@
 export const typography = {
-  defaultFamily: "Overpass",
+  defaultFamily: "Inter",
   fontSize: {
     regular400: "1rem",
-    caption: "",
   },
   fontWeight: {
     light: 300,

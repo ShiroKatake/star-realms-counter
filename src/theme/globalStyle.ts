@@ -1,6 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  :root {
+    font-family: "Inter";
+    font-size: 16px;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+  }
+
   html,
   body,
   h1,
@@ -19,11 +26,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     min-height: 100vh;
-    font-family: ${(props: any) => props.theme.typography.defaultFamily};
-    font-size: 16px;
-    color: ${(props: any) => props.theme.colors.white};
-    text-rendering: optimizeSpeed;
-    -webkit-font-smoothing: antialiased;
-    background: ${(props: any) => props.theme.colors.primary200};
+    color: ${(props: any) => props.theme.colors.text};
+    background: ${(props: any) => props.theme.colors.background};
   }
 `;

@@ -1,7 +1,7 @@
 export const colors = {
-  white: "white",
-  black: "",
-  neutral400: "",
-  primary500: "",
-  primary200: "rgba(18, 20, 21, 1)",
+  text: "white",
+  damage: "#f03027",
+  coin: "#f7dd4e",
+  health: "#67c164",
+  background: "#131516",
 };
