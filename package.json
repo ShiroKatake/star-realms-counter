@@ -1,5 +1,6 @@
 {
   "name": "star-realms-counter",
+  "homepage": "https://shirokatake.github.io/star-realms-counter/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
