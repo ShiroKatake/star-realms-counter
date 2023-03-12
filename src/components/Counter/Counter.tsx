@@ -24,18 +24,19 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
 
   useEffect(() => {
     let timeout = setTimeout(() => '', 1000);
+
     if (increment > 0) {
       const wait = async () => {
         setIsIncrementing(true);
         await timeoutAsync(50);
-
         setIsIncrementing(false);
-        timeout = setTimeout(() => {
-          setIncrement(0);
-        }, 2200);
       }
-
       wait();
+
+      timeout = setTimeout(() => {
+        setIncrement(0);
+      }, 2200);
+
     }
 
     return () => {
@@ -45,18 +46,18 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
 
   useEffect(() => {
     let timeout = setTimeout(() => '', 1000);
+
     if (decrement > 0) {
       const wait = async () => {
         setIsDecrementing(true);
         await timeoutAsync(50);
-
         setIsDecrementing(false);
-        timeout = setTimeout(() => {
-          setDecrement(0);
-        }, 2200);
       }
-
       wait();
+
+      timeout = setTimeout(() => {
+        setDecrement(0);
+      }, 2200);
     }
 
     return () => {
@@ -77,16 +78,18 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
 
   const reset = () => {
     setCount(0);
+    setIncrement(0);
+    setDecrement(0);
   }
 
   return (
     <Container className={className}>
       <Button windowWidth={windowWidth} onClick={increase}></Button>
       <Button windowWidth={windowWidth} onClick={decrease}></Button>
-      {increment > 0 && <IncreasingValue isFading={!isIncrementing}>+{increment}</IncreasingValue>}
+      {increment > 0 && < IncreasingValue isFading={!isIncrementing}>+{increment}</IncreasingValue>}
       <Value>{count}</Value>
       {decrement > 0 && <DecreasingValue isFading={!isDecrementing}>-{decrement}</DecreasingValue>}
       <ResetButton isResetting={isResetting} onClick={reset}><FaUndo /></ResetButton>
-    </Container>
+    </Container >
   );
 }

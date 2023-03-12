@@ -25,14 +25,12 @@ const IncrementalValue = styled.div<IncrementalValueProps>`
   left: 20%;
   font-size: 1.5em;
   pointer-events: none;
-  
-  @keyframes fade {
-    from {opacity: 1;}
-    to {opacity: 0;}
-  }
+  opacity: 1;
+  transition: opacity 0.01s;
 
   ${({ isFading }) => isFading && css`
-    animation: fade 2.7s;
+    opacity: 0;
+    transition: opacity 2.7s;
   `}
 `;
 
