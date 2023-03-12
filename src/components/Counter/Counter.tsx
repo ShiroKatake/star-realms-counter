@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { WindowHeightContext } from 'App';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaUndo } from 'react-icons/fa';
 import { Button, Container, DecreasingValue, IncreasingValue, ResetButton, Value } from './Counter.styled';
 
@@ -18,6 +19,8 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
   const [decrement, setDecrement] = useState(0);
   const [isIncrementing, setIsIncrementing] = useState(false);
   const [isDecrementing, setIsDecrementing] = useState(false);
+
+  const windowWidth = useContext(WindowHeightContext);
 
   useEffect(() => {
     let timeout = setTimeout(() => '', 1000);
@@ -78,8 +81,8 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
 
   return (
     <Container className={className}>
-      <Button onClick={increase}></Button>
-      <Button onClick={decrease}></Button>
+      <Button windowWidth={windowWidth} onClick={increase}></Button>
+      <Button windowWidth={windowWidth} onClick={decrease}></Button>
       {increment > 0 && <IncreasingValue isFading={!isIncrementing}>+{increment}</IncreasingValue>}
       <Value>{count}</Value>
       {decrement > 0 && <DecreasingValue isFading={!isDecrementing}>-{decrement}</DecreasingValue>}

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface UseWindowWidth {
+  windowWidth: number;
+}
+
 export const Grid = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,7 +17,7 @@ export const Row = styled.div`
   width: 100%;
 `;
 
-export const Column = styled.div`
-  height: 50vh;
+export const Column = styled.div<UseWindowWidth>`
+  height: ${({ windowWidth }) => 50 * windowWidth}px;
   width: 100%;
 `;

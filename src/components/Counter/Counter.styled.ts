@@ -46,10 +46,14 @@ export const DecreasingValue = styled(IncrementalValue)`
   color: ${(props) => props.theme.colors.decrease};
 `;
 
-export const Button = styled.button`
+interface ButtonStyleProps {
+  windowWidth: number;
+}
+
+export const Button = styled.button<ButtonStyleProps>`
   display: block;
   width: 100%;
-  height: 25vh;
+  height: ${({ windowWidth }) => 25 * windowWidth}px;
   border: 6px solid black;
   border-radius: 15px;
 `;
