@@ -1,7 +1,8 @@
 export const colors = {
   text: "white",
-  damage: "#f03027",
-  coin: "#f7dd4e",
-  health: "#67c164",
-  background: "#131516",
+  damage: "#ce4e63",
+  trade: "#f1e367",
+  authority: "#5ece7a",
+  increase: "#00ff00",
+  decrease: "#a50000",
 };
