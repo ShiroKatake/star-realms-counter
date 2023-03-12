@@ -4,6 +4,7 @@ export const Grid = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: black;
 `;
 
 export const Row = styled.div`
