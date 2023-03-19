@@ -5,7 +5,7 @@ export interface ResetButtonStyleProps {
 }
 
 export const Button = styled.button<ResetButtonStyleProps>`
-  position: fixed;
+  position: absolute;
   width: 3.5em;
   height: 3.5em;
   top: 50%;
@@ -28,8 +28,7 @@ export const Button = styled.button<ResetButtonStyleProps>`
       transform: scale(${({ isResetting }) => isResetting ? 1 : 0});
     }
 
-    &.undo {
-      padding-left: 1px;
+    &.menu {
       transform: scale(${({ isResetting }) => isResetting ? 0 : 1});
     }
 
