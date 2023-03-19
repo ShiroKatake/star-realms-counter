@@ -17,31 +17,31 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
   const [isIncrementing, setIsIncrementing] = useState(false);
   const [isDecrementing, setIsDecrementing] = useState(false);
 
-  const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-  const [ignored1, forceUpdate1] = useReducer(x => x + 1, 0);
+  const [incrementUpdate, forceUpdateIncrement] = useReducer(x => x + 1, 0);
+  const [decrementUpdate, forceUpdateDecrement] = useReducer(x => x + 1, 0);
   
   const windowWidth = useContext(WindowHeightContext);
 
   const increase = () => {
-    setCount(prevState => prevState + 1);
-    setIncrement(prevState => {
+    setCount(prevCount => prevCount + 1);
+    setIncrement(prevIncrement => {
       if (!isIncrementing) {
-        prevState = 0;
+        prevIncrement = 0;
       }
-      return prevState + 1;
+      return prevIncrement + 1;
     });
-    forceUpdate();
+    forceUpdateIncrement();
   }
 
   const decrease = () => {
-    setCount(prevState => prevState - 1);
-    setDecrement(prevState => {
+    setCount(prevCount => prevCount - 1);
+    setDecrement(prevDecrement => {
       if (!isDecrementing) {
-        prevState = 0;
+        prevDecrement = 0;
       }
-      return prevState + 1;
+      return prevDecrement + 1;
     });
-    forceUpdate1();
+    forceUpdateDecrement();
   }
 
   const reset = () => {
@@ -58,7 +58,7 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
         setIncrementCounter={setIncrement}
         setIsCounting={setIsIncrementing}
         isCounting={isIncrementing}
-        ignored={ignored}
+        ignored={incrementUpdate}
       >
         +{increment}
       </IncreasingValue>}
@@ -67,7 +67,7 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
         setIncrementCounter={setDecrement}
         setIsCounting={setIsDecrementing}
         isCounting={isDecrementing}
-        ignored={ignored1}
+        ignored={decrementUpdate}
       >
         -{decrement}
       </DecreasingValue>}
