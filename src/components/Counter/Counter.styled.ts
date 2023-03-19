@@ -1,5 +1,7 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Counter } from "./Counter";
+import { IncrementCounter } from "components/IncrementCounter/IncrementCounter";
+
 
 export const Container = styled.div`
   position: relative;
@@ -16,30 +18,12 @@ export const Value = styled.div`
   font-size: 7rem;
 `;
 
-interface IncrementalValueProps {
-  isFading: boolean;
-}
-
-const IncrementalValue = styled.div<IncrementalValueProps>`
-  position: absolute;
-  left: 20%;
-  font-size: 1.5em;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.01s;
-
-  ${({ isFading }) => isFading && css`
-    opacity: 0;
-    transition: opacity 3.1s cubic-bezier(.1,.56,.26,.86);
-  `}
-`;
-
-export const IncreasingValue = styled(IncrementalValue)`
+export const IncreasingValue = styled(IncrementCounter)`
   top: 30%;
   color: ${(props) => props.theme.colors.increase};
 `;
 
-export const DecreasingValue = styled(IncrementalValue)`
+export const DecreasingValue = styled(IncrementCounter)`
   bottom: 30%;
   color: ${(props) => props.theme.colors.decrease};
 `;
@@ -115,7 +99,7 @@ export const AuthorityCounter = styled(Counter)`
     }
   }
 
-  ${IncrementalValue} {
+  ${IncreasingValue}, ${DecreasingValue} {
     left: 30%;
   }
 `;
