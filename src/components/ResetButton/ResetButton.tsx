@@ -1,6 +1,5 @@
 import React from 'react';
-import { FaTimes } from 'react-icons/fa';
-import { GoThreeBars } from 'react-icons/go';
+import { FaTimes, FaUndo } from 'react-icons/fa';
 import { Button, ResetButtonStyleProps } from './ResetButton.styled';
 
 interface ResetButtonProps extends ResetButtonStyleProps {
@@ -12,7 +11,7 @@ export const ResetButton: React.FC<ResetButtonProps> = ({ isResetting, setIsRese
   return (
     <Button isResetting={isResetting} onClick={() => setIsResetting(prevState => !prevState)}>
       <FaTimes className='times' />
-      <GoThreeBars className='menu' />
+      <FaUndo className='menu' />
     </Button>
   );
 }
