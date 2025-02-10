@@ -8,7 +8,7 @@ import { DamageCounter, TradeCounter, AuthorityCounter } from "components/Counte
 export const WindowHeightContext = createContext<number>(0);
 
 export const App = () => {
-  const [windowHeight, setWindowWidth] = useState(window.innerHeight / 100);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight / 100);
   const [damage, setDamage] = useState(0);
   const [trade, setTrade] = useState(0);
   const [authority, setAuthority] = useState(0);
@@ -16,8 +16,7 @@ export const App = () => {
   const [isResetting, setIsResetting] = useState(false);
 
   useEffect(() => {
-    console.log(windowHeight * 100);
-    const onWindowWidthChange = () => { setWindowWidth(window.innerHeight / 100) }
+    const onWindowWidthChange = () => { setWindowHeight(window.innerHeight / 100) }
     window.addEventListener('resize', onWindowWidthChange);
 
     return () => {
