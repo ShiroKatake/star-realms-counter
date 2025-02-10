@@ -19,7 +19,7 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
 
   const [incrementUpdate, forceUpdateIncrement] = useReducer(x => x + 1, 0);
   const [decrementUpdate, forceUpdateDecrement] = useReducer(x => x + 1, 0);
-  
+
   const windowWidth = useContext(WindowHeightContext);
 
   const increase = () => {
@@ -52,8 +52,8 @@ export const Counter: React.FC<CounterProps> = ({ className, count, setCount, is
 
   return (
     <Container className={className}>
-      <Button windowWidth={windowWidth} onClick={increase}></Button>
-      <Button windowWidth={windowWidth} onClick={decrease}></Button>
+      <Button windowWidth={windowWidth} onClick={increase} onLongPress={reset} />
+      <Button windowWidth={windowWidth} onClick={decrease} onLongPress={reset} />
       {increment > 0 && <IncreasingValue
         setIncrementCounter={setIncrement}
         setIsCounting={setIsIncrementing}

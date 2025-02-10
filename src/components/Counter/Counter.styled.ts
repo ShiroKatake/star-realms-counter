@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Counter } from "./Counter";
 import { IncrementCounter } from "components/IncrementCounter/IncrementCounter";
-
+import { LongPressButton } from "components/LongPressButton/LongPressButton";
 
 export const Container = styled.div`
   position: relative;
@@ -32,7 +32,7 @@ interface ButtonStyleProps {
   windowWidth: number;
 }
 
-export const Button = styled.button<ButtonStyleProps>`
+export const Button = styled(LongPressButton)<ButtonStyleProps>`
   display: block;
   width: 100%;
   height: ${({ windowWidth }) => 25 * windowWidth}px;
@@ -54,7 +54,7 @@ export const ResetButton = styled.button<ResetButtonStyleProps>`
   font-size: 1.5em;
   background: none;
   border: none;
-  transform: scale(${({ isResetting }) => isResetting ? 1 : 0});
+  transform: scale(${({ isResetting }) => (isResetting ? 1 : 0)});
   transition: transform 0.2s ease;
 
   svg {
@@ -81,7 +81,7 @@ export const TradeCounter = styled(Counter)`
     background-color: ${(props) => props.theme.colors.trade};
     border-bottom: 3px solid black;
     border-left: 3px solid black;
-    
+
     &:nth-child(2) {
       border-bottom: 3px solid black;
       border-top: 3px solid black;
