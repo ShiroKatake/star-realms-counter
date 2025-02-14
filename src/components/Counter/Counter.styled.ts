@@ -1,6 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Counter } from "./Counter";
-import { IncrementCounter } from "components/IncrementCounter/IncrementCounter";
 import { LongPressButton } from "components/LongPressButton/LongPressButton";
 
 export const Container = styled.div`
@@ -18,14 +17,24 @@ export const Value = styled.div`
   font-size: 7rem;
 `;
 
-export const IncreasingValue = styled(IncrementCounter)`
-  top: 30%;
-  color: ${(props) => props.theme.colors.increase};
-`;
+interface IncrementalValueProps {
+  isFading: boolean;
+}
 
-export const DecreasingValue = styled(IncrementCounter)`
+export const IncrementalValue = styled.div<IncrementalValueProps>`
+  position: absolute;
   bottom: 30%;
-  color: ${(props) => props.theme.colors.decrease};
+  font-size: 1.75em;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.01s;
+
+  ${({ isFading }) =>
+    isFading &&
+    css`
+      opacity: 0;
+      transition: opacity 1.7s cubic-bezier(0.1, 0.56, 0.26, 0.86);
+    `}
 `;
 
 interface ButtonStyleProps {
@@ -97,9 +106,5 @@ export const AuthorityCounter = styled(Counter)`
     &:nth-child(1) {
       border-bottom: 3px solid black;
     }
-  }
-
-  ${IncreasingValue}, ${DecreasingValue} {
-    left: 30%;
   }
 `;
