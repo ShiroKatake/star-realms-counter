@@ -33,7 +33,7 @@ export const IncrementalValue = styled.div<IncrementalValueProps>`
     isFading &&
     css`
       opacity: 0;
-      transition: opacity 1.7s cubic-bezier(0.1, 0.56, 0.26, 0.86);
+      transition: opacity 1.8s cubic-bezier(0.1, 0.56, 0.26, 0.86);
     `}
 `;
 

@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface LongPressButtonProps {
-  className?: string
+  className?: string;
   children?: React.ReactNode;
   onLongPress: () => void;
   onClick: () => void;
+  onMouseDown?: () => void;
+  onMouseUp?: () => void;
 }
 
 export const LongPressButton = ({
@@ -12,6 +14,8 @@ export const LongPressButton = ({
   children,
   onLongPress,
   onClick,
+  onMouseDown,
+  onMouseUp,
 }: LongPressButtonProps) => {
   const [isPressed, setIsPressed] = useState(false);
   const [isLongPressed, setIsLongPressed] = useState<boolean | null>(null);
@@ -34,8 +38,14 @@ export const LongPressButton = ({
   return (
     <button
       className={className}
-      onMouseDown={() => setIsPressed(true)}
-      onMouseUp={() => setIsPressed(false)}
+      onMouseDown={() => {
+        onMouseDown && onMouseDown();
+        setIsPressed(true);
+      }}
+      onMouseUp={() => {
+        onMouseUp && onMouseUp();
+        setIsPressed(false);
+      }}
       onTouchStart={() => setIsPressed(true)}
       onTouchEnd={() => setIsPressed(false)}
     >
