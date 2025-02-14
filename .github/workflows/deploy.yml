@@ -24,6 +24,7 @@ jobs:
       install_outcome: ${{ steps.installOutcome.outputs.stepOutcome }}
       test_outcome: ${{ steps.testOutcome.outputs.stepOutcome }}
       build_outcome: ${{ steps.buildOutcome.outputs.stepOutcome }}
+      upload_outcome: ${{ steps.uploadOutcome.outputs.stepOutcome }}
       deploy_outcome: ${{ steps.deployOutcome.outputs.stepOutcome }}
     steps:
       - name: 🔎 Checkout
@@ -56,14 +57,20 @@ jobs:
           CI: false
       - id: buildOutcome
         if: always()
-        run: echo "::set-output name=stepOutcome::${{ steps.build.outcome }}" 
+        run: echo "::set-output name=stepOutcome::${{ steps.build.outcome }}"
+      
+      - name: 🧪Upload static files as artifact
+        id: upload
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+        with:
+          path: './build'
+      - id: uploadOutcome
+        if: always()
+        run: echo "::set-output name=stepOutcome::${{ steps.upload.outcome }}"
 
       - name: 🚀 Deploy
         id: deploy
-        uses: peaceiris/actions-gh-pages@v3.7.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+        uses: actions/deploy-pages@v4
       - id: deployOutcome
         if: always()
         run: echo "::set-output name=stepOutcome::${{ steps.deploy.outcome }}" 
@@ -104,6 +111,8 @@ jobs:
             `${{ needs.deploy.outputs.install_outcome }}`
             **BUILD**
             `${{ needs.deploy.outputs.build_outcome }}`
+            **UPLOAD**
+            `${{ needs.deploy.outputs.upload_outcome }}`
             **DEPLOY**
             `${{ needs.deploy.outputs.deploy_outcome }}`
           include-details: "false"
