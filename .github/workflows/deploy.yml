@@ -32,7 +32,7 @@ jobs:
 
       - name: 📦 Install
         id: install
-        run: npm install
+        run: npm install --legacy-peer-deps
       - id: installOutcome
         if: always()
         run: echo "::set-output name=stepOutcome::${{ steps.install.outcome }}"
