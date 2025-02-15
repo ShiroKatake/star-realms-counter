@@ -59,26 +59,22 @@ export const Counter: React.FC<CounterProps> = ({ className, isResetting }) => {
     if (!isCounting) dispatch({ type: "resetAmount" });
   }, [isCounting]);
 
-  const handleOnClick = () => {
-    setIsInitialised(true);
+  const handleMouseDown = () => {
     setIsCounting(true);
     setIsFading(false);
     clearTimeout(resetChangeTimer.current);
-    resetChangeTimer.current = setTimeout(() => {
-      setIsCounting(false);
-      setIsInitialised(false);
-    }, 2000);
-  };
-
-  const handleMouseDown = () => {
-    setIsFading(false);
     clearTimeout(fadeTimer.current);
   };
 
   const handleMouseUp = () => {
+    setIsInitialised(true);
     fadeTimer.current = setTimeout(() => {
       setIsFading(true);
     }, 600);
+    resetChangeTimer.current = setTimeout(() => {
+      setIsCounting(false);
+      setIsInitialised(false);
+    }, 2000);
   };
 
   return (
@@ -88,11 +84,10 @@ export const Counter: React.FC<CounterProps> = ({ className, isResetting }) => {
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onClick={() => {
-          handleOnClick();
           dispatch({ type: "update", amount: 1 });
         }}
         onLongPress={() => {
-          handleOnClick();
+          setIsInitialised(true);
           dispatch({ type: "update", amount: 10 });
         }}
       />
@@ -101,11 +96,10 @@ export const Counter: React.FC<CounterProps> = ({ className, isResetting }) => {
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onClick={() => {
-          handleOnClick();
           dispatch({ type: "update", amount: -1 });
         }}
         onLongPress={() => {
-          handleOnClick();
+          setIsInitialised(true);
           dispatch({ type: "update", amount: -10 });
         }}
       />
