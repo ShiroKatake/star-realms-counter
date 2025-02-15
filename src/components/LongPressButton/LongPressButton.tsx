@@ -46,8 +46,6 @@ export const LongPressButton = ({
         onMouseUp && onMouseUp();
         setIsPressed(false);
       }}
-      onTouchStart={() => setIsPressed(true)}
-      onTouchEnd={() => setIsPressed(false)}
     >
       {children}
     </button>
